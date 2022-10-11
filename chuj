@@ -1,0 +1,30 @@
+#include "lab01zad2.h"
+
+using namespace std;
+
+int main()
+{
+    float procent = 0.08/12.0;
+    float okres = 12;
+    int liczbakap;
+    float stankonta;
+    float odsetki(0);
+    cout << "Podaj wartosc kapitalu: " << endl;
+    cin >> stankonta;
+    cout << "Podaj stope procentowa: " << endl;
+    cin >> procent;
+    cout << "Podaj liczbe kapitalizacji: " << endl;
+    cin >> liczbakap;
+    int okreskap = okres / liczbakap;
+    for (int i = 0; i < liczbakap; i++)
+    {
+        odsetki += stankonta * procent;
+        if (i > 0)
+        {
+            stankonta += odsetki;
+            odsetki = 0;
+        }
+        cout << "Miesiac: " << i + 1 << " Stan Konta:" << (int)stankonta << endl;
+    }
+    return 0;
+}
