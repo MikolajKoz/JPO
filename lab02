@@ -1,0 +1,54 @@
+// CMakelab2z1.cpp: definiuje punkt wejścia dla aplikacji.
+//
+
+#include <chrono>
+#include <random>
+#include "CMakelab2z1.h"
+
+
+using namespace std;
+class Point2D {
+private:
+	float p_x, p_y;
+public:
+	Point2D(const float x = 0, float y = 0) :p_x{ x }, p_y{y}
+	{}
+	float get_x() const { return p_x; }
+	float get_y() const { return p_y; }
+	void set_x(const float& x) { p_x = x;  }
+	void set_y(const float& y) { p_y = y; }
+};
+class Circle {
+private:
+	float p_a, p_b, p_r;
+public:
+	Circle(const float a = 0, float b = 0, float r = 0) :p_a{ a }, p_b{ b }, p_r{ r }
+	{}
+	bool isInsideCircle(const Point2D& p) {
+		float dist = ((p.get_x() - p_a) * (p.get_x() - p_a)) + ((p.get_y() - p_b) * (p.get_y() - p_b));
+		if (dist <= p_r * p_r)
+			return true;
+		else
+			return false;
+	}
+};
+int main()
+{
+	mt19937 gen(chrono::system_clock::now().time_since_epoch().count());
+	uniform_real_distribution<double> distribution{ -1.0,1.0 };
+	distribution(gen);
+
+	int k = 0;
+	float x, y;
+
+	for (int i = 1; i <= ; i++) {
+		x = rand() / float(RAND_MAX);
+		y = rand() / float(RAND_MAX);
+		if (x * x + y * y <= 1) k++;
+	}
+
+	
+
+	cout << "" << endl;
+	return 0;
+}
