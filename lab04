@@ -1,0 +1,59 @@
+// labo4.cpp: definiuje punkt wejścia dla aplikacji.
+//
+
+#include "labo4.h"
+#include <iostream>
+#include <vector>
+#include <string>
+#include <conio.h>
+#include <algorithm>
+
+using namespace std;
+
+void print(const vector <string>& v)
+{
+	for (auto i : v)
+	{
+		cout << i << ", ";
+	}
+	cout << endl;
+}
+
+int main()
+{
+	vector <string> zakupy{};
+	print(zakupy);
+	zakupy.push_back("wino");
+	zakupy.push_back("buraki");
+	zakupy.push_back("banany");
+	zakupy.push_back("cukier");
+	zakupy.push_back("czekolada");
+	zakupy.push_back("marchew");
+	cout << zakupy[zakupy.size() - 1] << endl;
+	zakupy.erase(zakupy.end() - 1);
+	zakupy.insert(zakupy.begin() + 2, "kawa");
+	print(zakupy);
+	for (int i = 0; i < zakupy.size(); i++)
+	{
+		if (zakupy[i] == "cukier")
+		{
+			zakupy[i] = "cukierki";
+		}
+	}
+	print(zakupy);
+
+	for (int i = 0; i < zakupy.size(); i++)
+	{
+		if (zakupy[i] == "czekolada")
+		{
+			zakupy.erase(zakupy.begin() + i);
+			break;
+		}
+	}
+	print(zakupy);
+	sort(zakupy.begin(), zakupy.end());
+	print(zakupy);
+
+
+	return 0;
+}
