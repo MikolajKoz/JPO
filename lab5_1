@@ -1,0 +1,24 @@
+#include <iostream>
+#include <map>
+
+using namespace std;
+
+int main()
+{
+	string word;
+	cout << "Wprowadz slowo: " << endl; 
+	cin >> word;
+	map<char, int> counter;
+
+	for (int i = 0; i < word.size(); i++)
+	{
+		counter[word[i]] ++;
+	}
+
+	for (auto i : counter)
+	{
+		cout << i.first << ' ' << i.second << endl;
+	}
+
+	return 0;
+}
