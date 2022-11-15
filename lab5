@@ -1,0 +1,38 @@
+// Lab05.cpp: definiuje punkt wejścia dla aplikacji.
+//
+
+//#include "Lab05.h"
+#include <iostream>
+#include <map>
+
+using namespace std;
+
+int main()
+{
+	string nazwisko;
+	int nr;
+	map<string, int> tele;
+
+	while (true)
+	{
+		cin >> nazwisko;
+		if (nazwisko == "exit")
+			break;
+
+		if (tele.count(nazwisko) > 0)
+		{
+			cout << tele[nazwisko];
+		}
+		else
+		{
+			cout << "Wprowadz numer telefonu: " << endl;
+			cin >> nr;
+			tele[nazwisko] = nr;
+
+		}
+
+	}
+
+
+	return 0;
+}
