@@ -1,0 +1,60 @@
+#include <iostream>
+#include<stdlib.h>
+#include<stdio.h>
+#include<string.h>
+
+using namespace std;
+class Person
+{
+    string Imie;
+    string Nazwisko;
+    string Pesel;
+public:
+    Person(const string& fImie=" ", const string&  fNazwisko=" ", const string& fPesel=" "): Imie{fImie}, Nazwisko{fNazwisko}, Pesel{fPesel}
+    {}
+    string getImie(void) const{
+        return Imie;
+    }
+    string getNazwisko(void) const{
+        return Nazwisko;
+    }
+    string getPesel(void) const{
+        return Pesel;
+    }
+
+    string to_string()
+    {
+        return "Person:"+ Imie + " " + Nazwisko + " " + Pesel;
+    }
+};
+class Student : public Person
+{
+    string kierunek;
+    string indeks;
+public:
+    Student(const string& fImie = " ", const string& fNazwisko = " ", const string& fPesel = " ",const string& fkierunek = " ", const string& findeks = " "):Person(fImie, fNazwisko, fPesel), kierunek{fkierunek}, indeks{findeks}
+    {}
+    string getkierunek(void) const {
+        return kierunek;
+    }
+    string getindeks(void) const {
+        return indeks;
+    }
+    string to_string()
+    {
+        return "Person:" + getImie() + " " + getNazwisko() + " " + getPesel() + " " + kierunek + " " + indeks;
+    }
+    
+
+
+};
+
+int main()
+{
+    Person p("Adam", "Wkladam", "3000");
+    Student s("Grzesiu", "Kosz", "44444", "WSRH", "888444");
+    cout << p.to_string();
+    cout << endl;
+    cout << s.to_string();
+    return 0;
+}
